@@ -167,6 +167,8 @@ reformedcolmat = convertzero(reformedcolmat)
 
 #-----------------------------------------------------------------------------------------------------------
 
+#SOLUTION
+
 print("\nSolution:")
 #print(matrix)
 soldic = {}
