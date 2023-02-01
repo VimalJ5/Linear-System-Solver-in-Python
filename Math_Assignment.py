@@ -27,11 +27,11 @@ def rowswap(matrix,r1,r2):
     return matrix
 
 def scalarmult(matrix,r1,scalar):
-    matrix[r1] = [scalar*i for i in matrix[r1]]
+    matrix[r1] = [round(scalar*i,5) for i in matrix[r1]]
     return matrix
 
 def addsub(matrix,r1,r2,scalar):
-    matrix[r1] = [matrix[r1][i] + scalar * matrix[r2][i] for i in range(len(matrix[r1]))]
+    matrix[r1] = [round(matrix[r1][i] + scalar * matrix[r2][i],5) for i in range(len(matrix[r1]))]
     return matrix
 
 def convertzero(matrix):
@@ -212,7 +212,19 @@ values = convertzero(values)
 for index,(k,v) in enumerate(finaldic.items()):
     finaldic[k] = values[index]
 
-if finaldic == {}:
+if matrix == [[0]*column]*row:
+    zerodic = {}
+    for i in range(len(matrix[0])):
+        templist = [0]*column
+        templist[i] = 1
+        zerodic["x"+str(i+1)] = templist
+    x = ""
+    print("\nx =",end = " ")
+    for (k,v) in zerodic.items():
+        x = x+("  "+k+"*"+str(v)+" + ")
+    print(x[:len(x)-2:])
+
+elif finaldic == {}:
     print("Trivial Solution, x = 0 for all x in R^"+str(column))
 else:
     x = ""
