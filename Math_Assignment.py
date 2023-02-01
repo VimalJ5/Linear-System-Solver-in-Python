@@ -31,7 +31,7 @@ def scalarmult(matrix,r1,scalar):
     return matrix
 
 def addsub(matrix,r1,r2,scalar):
-    matrix[r1] = [round(matrix[r1][i] + scalar * matrix[r2][i],5) for i in range(len(matrix[r1]))]
+    matrix[r1] = [matrix[r1][i] + scalar * matrix[r2][i] for i in range(len(matrix[r1]))]
     return matrix
 
 def convertzero(matrix):
